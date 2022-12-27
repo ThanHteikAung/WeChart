@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Wechart</string>
+    <string name="txt_sign_up">Sign Up</string>
+    <string name="txt_first_screen_title">Text your friends and share moments</string>
+    <string name="txt_first_screen_body">End-to-end secured messaging app with Social Elements</string>
+    <string name="txt_login">Login</string>
 </resources>

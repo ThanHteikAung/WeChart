@@ -1,17 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/primary_color"
+    tools:context=".activites.MainActivity">
 
-    <TextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/title"
+        android:layout_alignParentTop="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wechart_logo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello"
-        android:layout_centerInParent="true"/>
+        android:text="@string/txt_first_screen_title"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text_color"
+        android:layout_alignLeft="@id/signUp"
+        android:layout_above="@id/bodyText"
+        android:textSize="@dimen/text_regular_3x_n"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/bodyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_first_screen_body"
+        android:textColor="@color/primary_text_color"
+        android:layout_alignStart="@id/signUp"
+        android:textSize="@dimen/text_small"
+        android:layout_above="@id/signUp"
+        android:layout_marginBottom="@dimen/margin_xxlarge"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/signUp"
+        android:layout_width="@dimen/width_btn"
+        android:layout_height="@dimen/height_btn"
+        android:layout_marginBottom="@dimen/margin_xxlarge"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_four_corner_button"
+        android:gravity="center"
+        android:text="@string/txt_sign_up"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular_2x"
+        android:layout_marginLeft="@dimen/margin_xxlarge"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_alignTop="@id/signUp"
+        android:layout_width="@dimen/width_btn"
+        android:layout_height="@dimen/height_btn"
+        android:background="@drawable/rounded_four_corner_button"
+        android:gravity="center"
+        android:text="@string/txt_login"
+        android:backgroundTint="@color/secondary_color"
+        android:layout_toEndOf="@id/signUp"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:textStyle="bold"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/text_regular_2x" />
 
 
 </RelativeLayout>

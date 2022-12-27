@@ -6,5 +6,6 @@ interface MainPresenter {
 
     fun initView(view: MainView)
     fun onTapLogin()
+    fun onTapSignUp()
 
 }

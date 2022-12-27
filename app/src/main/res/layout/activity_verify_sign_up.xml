@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color"
+    tools:context=".activities.VerifySignUpActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBack"
+        android:layout_width="@dimen/width_back_arrow"
+        android:layout_height="@dimen/height_back_arrow"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_arrow_back_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnBack"
+        android:layout_alignStart="@id/btnBack"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:text="@string/txt_hi"
+        android:textColor="@color/secondary_color"
+        android:textSize="@dimen/text_heading_2x"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTitle"
+        android:layout_alignStart="@id/txtTitle"
+        android:text="@string/txt_body"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtInputPhNo"
+        android:layout_below="@id/txtBody">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/sign_up_verify_img" />
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputPhNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtFirstOtp"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:layout_toStartOf="@id/btnGetOtp"
+        android:hint="@string/txt_enter_your_phone_number"
+        app:boxBackgroundColor="@color/primary_color"
+        app:boxStrokeColor="@color/light_dark_text_color"
+        app:hintTextColor="@color/light_dark_text_color">
+
+        <EditText
+            android:id="@+id/edtPhNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/txtForgotPass"
+            android:ems="10"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnGetOtp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_above="@id/txtFirstOtp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:background="@drawable/rounded_four_corner_button"
+        android:backgroundTint="@color/secondary_color"
+        android:gravity="center"
+        android:text="Get OTP"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtFirstOtp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/rlOtpGp"
+        android:layout_alignStart="@id/rlOtpGp"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:background="@drawable/rounded_four_corner_otp_button"
+        android:elevation="2dp"
+        android:ems="1"
+        android:gravity="center"
+        android:text="@string/txt_first_otp"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtSecondOtp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/rlOtpGp"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_toEndOf="@id/txtFirstOtp"
+        android:background="@drawable/rounded_four_corner_otp_button"
+        android:elevation="2dp"
+        android:ems="1"
+        android:gravity="center"
+        android:text="@string/txt_second_otp"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtThirdOtp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/rlOtpGp"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_toEndOf="@id/txtSecondOtp"
+        android:background="@drawable/rounded_four_corner_otp_button"
+        android:elevation="2dp"
+        android:ems="1"
+        android:gravity="center"
+        android:text="@string/txt_third_otp"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtFouthOtp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/rlOtpGp"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_toEndOf="@id/txtThirdOtp"
+        android:background="@drawable/rounded_four_corner_otp_button"
+        android:elevation="2dp"
+        android:ems="1"
+        android:gravity="center"
+        android:text="@string/txt_fourth_otp"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rlOtpGp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_above="@id/btnVerify"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/margin_xxlarge">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_xxlarge"
+            android:text="Dont receive the OTP?"
+            android:textColor="@color/light_dark_text_color"
+            android:textSize="@dimen/text_regular"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtResendCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_xxlarge"
+            android:layout_toEndOf="@id/txtOTP"
+            android:text="Resend Code"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_regular"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnVerify"
+        android:layout_width="@dimen/width_btn"
+        android:layout_height="@dimen/height_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_xlarge"
+        android:background="@drawable/rounded_four_corner_button"
+        android:backgroundTint="@color/secondary_color"
+        android:gravity="center"
+        android:text="@string/txt_verify"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
+</RelativeLayout>

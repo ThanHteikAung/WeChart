@@ -38,10 +38,18 @@ class MainActivity : AppCompatActivity(), MainView {
         btnFstLogin.setOnClickListener {
             mPresenter.onTapLogin()
         }
+
+        btnFstSignUp.setOnClickListener {
+            mPresenter.onTapSignUp()
+        }
     }
 
     override fun navigateToLogin() {
         startActivity(LoginActivity.newIntent(this))
+    }
+
+    override fun navigateToVerifySignUpOTP() {
+        startActivity(VerifySignUpActivity.newIntent(this))
     }
 
 

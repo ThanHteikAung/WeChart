@@ -15,5 +15,9 @@ class MainPresenterImpl : ViewModel(), MainPresenter {
         mView.navigateToLogin()
     }
 
+    override fun onTapSignUp() {
+        mView.navigateToVerifySignUpOTP()
+    }
+
 
 }

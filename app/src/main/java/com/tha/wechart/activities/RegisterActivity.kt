@@ -2,18 +2,15 @@ package com.tha.wechart.activities
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.tha.wechart.R
-import kotlinx.android.synthetic.main.activity_register.*
-import java.time.YearMonth
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -46,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerMonth.adapter = adapter
                 spinnerMonth.onItemSelectedListener = object : OnItemSelectedListener {
-                    @RequiresApi(Build.VERSION_CODES.O)
+
                     override fun onItemSelected(
                         p0: AdapterView<*>?,
                         p1: View?,
@@ -77,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
             // Apply the adapter to the spinner
             spinnerYear.adapter = adapter
             spinnerYear.onItemSelectedListener = object : OnItemSelectedListener {
-                @RequiresApi(Build.VERSION_CODES.O)
+
                 override fun onItemSelected(
                     p0: AdapterView<*>?,
                     p1: View?,
@@ -98,12 +95,15 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun calDays(year: Int, selectedMonth: String) {
         val spinnerDay: Spinner = findViewById(R.id.spinnerDay)
         var mDays: Int = 0
         var daysList = ArrayList<Int>()
-        mDays = YearMonth.of(year, selectedMonth.toInt()).lengthOfMonth()
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, selectedMonth.toInt() - 1)
+        //mDays = YearMonth.of(year, selectedMonth.toInt()).lengthOfMonth()
+        mDays = calendar.getActualMaximum(Calendar.DATE)
         println("********Test*******")
         println(mDays)
 

@@ -5,5 +5,6 @@ import com.tha.wechart.mvp.views.VerifySignUpView
 interface VerifySignUpPresenter {
 
     fun initial(view: VerifySignUpView)
+    fun onTapVerifySignUpRegister()
 
 }

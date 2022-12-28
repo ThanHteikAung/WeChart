@@ -10,4 +10,8 @@ class VerifySignUpPresenterImpl : ViewModel(), VerifySignUpPresenter {
     override fun initial(view: VerifySignUpView) {
         mView = view
     }
+
+    override fun onTapVerifySignUpRegister() {
+        mView.navigateToVerifyRegisterSignUp()
+    }
 }

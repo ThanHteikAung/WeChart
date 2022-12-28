@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color"
+    tools:context=".activities.RegisterActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBack"
+        android:layout_width="@dimen/width_back_arrow"
+        android:layout_height="@dimen/height_back_arrow"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_arrow_back_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnBack"
+        android:layout_alignStart="@id/btnBack"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:text="@string/txt_hi"
+        android:textColor="@color/secondary_color"
+        android:textSize="@dimen/text_heading_2x"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTitle"
+        android:layout_alignStart="@id/txtTitle"
+        android:text="@string/txt_body"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="230dp"
+        android:layout_height="360dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-80dp"
+        android:elevation="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/register_img" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputPhNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lbDateOfBth"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:hint="@string/txt_name"
+        app:boxBackgroundColor="@color/primary_color"
+        app:boxStrokeColor="@color/light_dark_text_color"
+        app:hintTextColor="@color/light_dark_text_color">
+
+        <EditText
+            android:id="@+id/edtPhNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/txtForgotPass"
+            android:ems="10"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbDateOfBth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/spinnerDay"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/txt_date_of_birth"
+        android:textColor="@color/light_dark_text_color"
+        android:textSize="@dimen/text_small" />
+
+    <Spinner
+        android:id="@+id/spinnerYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lbGender"
+        android:layout_toEndOf="@id/spinnerMonth" />
+
+    <Spinner
+        android:id="@+id/spinnerMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lbGender"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_toEndOf="@id/spinnerDay" />
+
+    <Spinner
+        android:id="@+id/spinnerDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lbGender"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginEnd="@dimen/margin_medium" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rbgGender"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/txt_gender"
+        android:textColor="@color/light_dark_text_color"
+        android:textSize="@dimen/text_small" />
+
+    <RadioGroup
+        android:id="@+id/rbgGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtInputPass"
+        android:layout_alignStart="@id/txtTitle"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:text="@string/txt_male"
+            android:textColor="@color/primary_text_color"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+
+            android:text="@string/txt_female"
+            android:textColor="@color/primary_text_color"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_other"
+            android:textColor="@color/primary_text_color"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkBoxAgreeTerm"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:hint="@string/txt_enter_your_password"
+        app:boxBackgroundColor="@color/primary_color"
+        app:boxStrokeColor="@color/light_dark_text_color"
+        app:hintTextColor="@color/light_dark_text_color">
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/txtForgotPass"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkBoxAgreeTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnRegisterSignUp"
+        android:layout_alignStart="@id/txtTitle"
+        android:layout_marginBottom="@dimen/margin_xxlarge"
+        android:text="Agree To Term And Service"
+        android:textColor="@color/primary_text_color" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnRegisterSignUp"
+        android:layout_width="@dimen/width_btn"
+        android:layout_height="@dimen/height_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_xlarge"
+        android:background="@drawable/rounded_four_corner_button"
+        android:backgroundTint="@color/secondary_color"
+        android:gravity="center"
+        android:text="@string/txt_sign_up"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
+</RelativeLayout>

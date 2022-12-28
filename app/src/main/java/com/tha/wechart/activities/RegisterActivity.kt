@@ -32,13 +32,14 @@ class RegisterActivity : AppCompatActivity() {
         val spinnerYear: Spinner = findViewById(R.id.spinnerYear)
         val spinnerMonth: Spinner = findViewById(R.id.spinnerMonth)
         val years = resources.getStringArray(R.array.years)
+        val months = resources.getStringArray(R.array.months)
         var monthList = ArrayList<String>()
 
         //set Month
         for (month in 1..12) {
             monthList.add(month.toString())
         }
-        ArrayAdapter(this, android.R.layout.simple_spinner_item, monthList)
+        ArrayAdapter.createFromResource(this, R.array.months, android.R.layout.simple_spinner_item)
             .also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerMonth.adapter = adapter
@@ -51,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                         p3: Long
                     ) {
                         val year = spinnerYear.selectedItem.toString()
-                        val selectedMonth = monthList[position]
+                        val selectedMonth = months[position]
                         calDays(year.toInt(), selectedMonth)
                     }
 
@@ -100,8 +101,24 @@ class RegisterActivity : AppCompatActivity() {
         var mDays: Int = 0
         var daysList = ArrayList<Int>()
         val calendar = Calendar.getInstance()
+        val strMonthList = mapOf(
+            "Jan" to 1,
+            "Feb" to 2,
+            "Mar" to 3,
+            "Apr" to 4,
+            "May" to 5,
+            "Jun" to 6,
+            "Jul" to 7,
+            "Aug" to 8,
+            "Sept" to 9,
+            "Oct" to 10,
+            "Nov" to 11,
+            "Dec" to 12
+        )
+        val intMonth = strMonthList[selectedMonth] ?: 0
+
         calendar.set(Calendar.YEAR, year)
-        calendar.set(Calendar.MONTH, selectedMonth.toInt() - 1)
+        calendar.set(Calendar.MONTH, intMonth - 1)
         //mDays = YearMonth.of(year, selectedMonth.toInt()).lengthOfMonth()
         mDays = calendar.getActualMaximum(Calendar.DATE)
         println("********Test*******")

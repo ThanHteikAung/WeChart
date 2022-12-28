@@ -27,18 +27,13 @@ class RegisterActivity : AppCompatActivity() {
         setUpSpinner()
     }
 
-
     private fun setUpSpinner() {
         val spinnerYear: Spinner = findViewById(R.id.spinnerYear)
         val spinnerMonth: Spinner = findViewById(R.id.spinnerMonth)
-        val years = resources.getStringArray(R.array.years)
         val months = resources.getStringArray(R.array.months)
-        var monthList = ArrayList<String>()
+        var yearList = ArrayList<String>()
 
         //set Month
-        for (month in 1..12) {
-            monthList.add(month.toString())
-        }
         ArrayAdapter.createFromResource(this, R.array.months, android.R.layout.simple_spinner_item)
             .also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -53,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
                     ) {
                         val year = spinnerYear.selectedItem.toString()
                         val selectedMonth = months[position]
-                        calDays(year.toInt(), selectedMonth)
+                        calDays(year, selectedMonth)
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -64,12 +59,17 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         //set year
-        ArrayAdapter.createFromResource(
+        val thisYear = Calendar.getInstance().get(Calendar.YEAR)
+        yearList.add("Year")
+        for (year in 1950..thisYear) {
+            yearList.add(year.toString())
+        }
+        ArrayAdapter(
             this,
-            R.array.years,
             android.R.layout.simple_spinner_item,
+            yearList
 
-            ).also { adapter ->
+        ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
@@ -82,10 +82,9 @@ class RegisterActivity : AppCompatActivity() {
                     position: Int,
                     p3: Long
                 ) {
-                    val year = years[position].toInt()
+                    val year = yearList[position]
                     val selectedMonth = spinnerMonth.selectedItem.toString()
                     calDays(year, selectedMonth)
-
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -96,10 +95,10 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun calDays(year: Int, selectedMonth: String) {
+    private fun calDays(year: String, selectedMonth: String) {
         val spinnerDay: Spinner = findViewById(R.id.spinnerDay)
         var mDays: Int = 0
-        var daysList = ArrayList<Int>()
+        var daysList = ArrayList<String>()
         val calendar = Calendar.getInstance()
         val strMonthList = mapOf(
             "Jan" to 1,
@@ -115,24 +114,22 @@ class RegisterActivity : AppCompatActivity() {
             "Nov" to 11,
             "Dec" to 12
         )
-        val intMonth = strMonthList[selectedMonth] ?: 0
+        daysList.add("Day")
+        if (year != "Year" && selectedMonth != "Month") {
+            val intMonth = strMonthList[selectedMonth] ?: 0
+            calendar.set(Calendar.YEAR, year.toInt())
+            calendar.set(Calendar.MONTH, intMonth - 1)
+            mDays = calendar.getActualMaximum(Calendar.DATE)
 
-        calendar.set(Calendar.YEAR, year)
-        calendar.set(Calendar.MONTH, intMonth - 1)
-        //mDays = YearMonth.of(year, selectedMonth.toInt()).lengthOfMonth()
-        mDays = calendar.getActualMaximum(Calendar.DATE)
-        println("********Test*******")
-        println(mDays)
-
-        //Set days
-        for (day in 1..mDays) {
-            daysList.add(day)
+            //Set days
+            for (day in 1..mDays) {
+                daysList.add(day.toString())
+            }
         }
         ArrayAdapter(this, android.R.layout.simple_spinner_item, daysList).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerDay.adapter = adapter
         }
     }
-
 
 }

@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".activities.CreateMomentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/closeNewMom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_close_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/closeNewMom"
+        android:layout_centerHorizontal="true"
+        android:text="@string/txt_new_moment"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_heading_1x"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/closeNewMom"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_four_corner_button"
+        android:backgroundTint="@color/secondary_color"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/txt_create"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="@dimen/width_new_moment_profile"
+        android:layout_height="@dimen/height_new_moment_profile"
+        android:layout_below="@id/txtTitle"
+        android:layout_alignStart="@id/closeNewMom"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/profile_img" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imgProfile"
+        android:layout_alignBottom="@+id/imgProfile"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@id/imgProfile"
+        android:text="@string/txt_profile_name"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/createText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgProfile"
+        android:layout_alignStart="@id/closeNewMom"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@android:color/transparent"
+        android:hint="@string/txt_hint_new_moment"
+        android:inputType="textMultiLine|textNoSuggestions" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

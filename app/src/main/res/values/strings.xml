@@ -48,5 +48,8 @@
     <string name="txt_deactived_time">15 min ago</string>
     <string name="txt_nice">Nice!</string>
     <string name="txt_count">10</string>
+    <string name="txt_new_moment">New Moment</string>
+    <string name="txt_create">Create</string>
+    <string name="txt_hint_new_moment">What\'s on your mind</string>
 
 </resources>

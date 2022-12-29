@@ -33,6 +33,8 @@
     <dimen name="text_regular_3x_n">18sp</dimen>
     <dimen name="width_back_arrow">30dp</dimen>
     <dimen name="height_back_arrow">30dp</dimen>
+    <dimen name="width_new_moment_profile">50dp</dimen>
+    <dimen name="height_new_moment_profile">50dp</dimen>
 
     <!-- App Specific Dimensions-->
 

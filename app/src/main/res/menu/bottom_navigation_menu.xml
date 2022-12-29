@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/momentMenu"
+        android:icon="@drawable/ic_baseline_camera_dark_light_24dp"
+        android:title="@string/txt_moment_menu"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/chatMenu"
+        android:icon="@drawable/ic_baseline_chat_dark_light_24"
+        android:title="@string/txt_chat_menu"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/contactsMenu"
+        android:icon="@drawable/ic_baseline_perm_contact_calendar_dark_light_24dp"
+        android:title="@string/txt_contacts_menu"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/meAccMenu"
+        android:icon="@drawable/ic_baseline_account_circle_dark_light_24dp"
+        android:title="@string/txt_me_menu"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/settingMenu"
+        android:icon="@drawable/ic_baseline_menu_dark_light_24dp"
+        android:title="@string/txt_setting_menu"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+
+</menu>

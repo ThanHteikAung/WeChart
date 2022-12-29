@@ -4,37 +4,37 @@
 
     <item
         android:id="@+id/momentMenu"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_camera_dark_light_24dp"
         android:title="@string/txt_moment_menu"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/chatMenu"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_chat_dark_light_24"
         android:title="@string/txt_chat_menu"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/contactsMenu"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_perm_contact_calendar_dark_light_24dp"
         android:title="@string/txt_contacts_menu"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/meAccMenu"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_account_circle_dark_light_24dp"
         android:title="@string/txt_me_menu"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/settingMenu"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_menu_dark_light_24dp"
         android:title="@string/txt_setting_menu"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
 </menu>

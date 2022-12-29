@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_medium_2">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/profile_img" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imgProfile"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_toEndOf="@id/imgProfile"
+        android:text="@string/txt_profile_name"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/margin_medium_2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtDeActivated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtProfileName"
+        android:layout_alignStart="@id/txtProfileName"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:text="@string/txt_deactived_time"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/margin_card_medium_2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moreSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imgProfile"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_more_horiz_24" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtNice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgProfile"
+        android:layout_alignStart="@id/imgProfile"
+        android:layout_alignEnd="@+id/moreSetting"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/txt_nice"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/margin_medium_2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMomentImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/txtNice"
+        android:layout_alignStart="@id/imgProfile"
+        android:layout_alignEnd="@id/moreSetting"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:clipToPadding="false" />
+
+    <include
+        android:id="@+id/includeReactionCustLayout"
+        layout="@layout/view_pod_reaction_custom_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rvMomentImage"
+        android:layout_alignStart="@id/imgProfile"
+        android:layout_alignEnd="@id/moreSetting"
+        android:layout_marginTop="@dimen/margin_medium_2" />
+</RelativeLayout>

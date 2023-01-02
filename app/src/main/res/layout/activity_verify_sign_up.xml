@@ -65,7 +65,7 @@
         app:hintTextColor="@color/light_dark_text_color">
 
         <EditText
-            android:id="@+id/edtPhNo"
+            android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/txtForgotPass"
@@ -91,7 +91,7 @@
         android:textSize="@dimen/text_regular_2x"
         android:textStyle="bold" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/txtFirstOtp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -101,14 +101,19 @@
         android:layout_marginBottom="@dimen/margin_large"
         android:background="@drawable/rounded_four_corner_otp_button"
         android:elevation="2dp"
-        android:ems="1"
         android:gravity="center"
-        android:text="@string/txt_first_otp"
+        android:hint="-"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="1"
+        android:nextFocusDown="@id/txtSecondOtp"
+        android:nextFocusForward="@id/txtSecondOtp"
         android:textColor="@color/primary_text_color"
         android:textSize="@dimen/text_regular_3x"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/txtSecondOtp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -118,14 +123,20 @@
         android:layout_toEndOf="@id/txtFirstOtp"
         android:background="@drawable/rounded_four_corner_otp_button"
         android:elevation="2dp"
-        android:ems="1"
         android:gravity="center"
-        android:text="@string/txt_second_otp"
+        android:hint="-"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="1"
+        android:nextFocusLeft="@id/txtFirstOtp"
+        android:nextFocusDown="@id/txtThirdOtp"
+        android:nextFocusForward="@id/txtThirdOtp"
         android:textColor="@color/primary_text_color"
         android:textSize="@dimen/text_regular_3x"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/txtThirdOtp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -135,14 +146,19 @@
         android:layout_toEndOf="@id/txtSecondOtp"
         android:background="@drawable/rounded_four_corner_otp_button"
         android:elevation="2dp"
-        android:ems="1"
         android:gravity="center"
-        android:text="@string/txt_third_otp"
+        android:hint="-"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="1"
+        android:nextFocusLeft="@id/txtSecondOtp"
+        android:nextFocusDown="@id/txtFouthOtp"
+        android:nextFocusForward="@id/txtFouthOtp"
         android:textColor="@color/primary_text_color"
         android:textSize="@dimen/text_regular_3x"
         android:textStyle="bold" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/txtFouthOtp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -151,9 +167,12 @@
         android:layout_toEndOf="@id/txtThirdOtp"
         android:background="@drawable/rounded_four_corner_otp_button"
         android:elevation="2dp"
-        android:ems="1"
         android:gravity="center"
-        android:text="@string/txt_fourth_otp"
+        android:hint="-"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="1"
+        android:nextFocusLeft="@id/txtThirdOtp"
         android:textColor="@color/primary_text_color"
         android:textSize="@dimen/text_regular_3x"
         android:textStyle="bold" />

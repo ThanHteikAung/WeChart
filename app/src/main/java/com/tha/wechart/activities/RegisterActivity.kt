@@ -9,14 +9,25 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.tha.wechart.R
+import com.tha.wechart.mvp.presenters.RegisterPresenter
+import com.tha.wechart.mvp.presenters.RegisterPresenterImpl
+import com.tha.wechart.mvp.views.RegisterView
+import kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(), RegisterView {
+
+    private lateinit var mPresenter: RegisterPresenter
 
     companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, RegisterActivity::class.java)
+        private const val EXTRA_PHONE_NUMBER = "EXTRA_PHONE_NUMBER"
+        fun newIntent(context: Context, phNo: String): Intent {
+            println("newIntent() -> $phNo")
+            return Intent(context, RegisterActivity::class.java).putExtra(
+                EXTRA_PHONE_NUMBER, phNo
+            )
         }
     }
 
@@ -24,7 +35,14 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        setUpPresenter()
         setUpSpinner()
+        setUpListener()
+    }
+
+    private fun setUpPresenter() {
+        mPresenter = ViewModelProvider(this)[RegisterPresenterImpl::class.java]
+        mPresenter.initial(this)
     }
 
     private fun setUpSpinner() {
@@ -130,6 +148,46 @@ class RegisterActivity : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerDay.adapter = adapter
         }
+
+    }
+
+    private fun setUpListener() {
+        btnRegisterSignUp.setOnClickListener {
+            val day = spinnerDay.selectedItem.toString()
+            val month = spinnerMonth.selectedItem.toString()
+            val year = spinnerYear.selectedItem.toString()
+            val strName = edtPhoneNumber.text.toString()
+            val dateOfBirth = "$day/$month/$year"
+            val mPhNo = intent.getStringExtra(EXTRA_PHONE_NUMBER).toString()
+            println("Get PhoneNumber -> $mPhNo")
+            println("***Test Register***")
+            val genderId = rbgGender.checkedRadioButtonId
+            val genderString = resources.getResourceEntryName(genderId)
+            println(genderString)
+            if (strName.isEmpty()) {
+                txtInputName.helperText = "*Require"
+            } else if (year == "Year") {
+                tilDateOfBth.helperText = "*Require input year"
+            } else if (month == "Month") {
+                tilDateOfBth.helperText = "*Require input month"
+            } else if (day == "Day") {
+                tilDateOfBth.helperText = "*Require input day"
+            } else {
+                txtInputName.helperText = ""
+                tilDateOfBth.helperText = ""
+                mPresenter.onTapVerifyRegister(
+                    mPhNo,
+                    edtPhoneNumber.text.toString(),
+                    dateOfBirth,
+                    genderString,
+                    edtPassword.text.toString()
+                )
+            }
+        }
+    }
+
+    override fun addRegister() {
+        startActivity(LoginActivity.newIntent(this))
     }
 
 }

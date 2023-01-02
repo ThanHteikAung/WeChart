@@ -6,5 +6,6 @@ interface VerifySignUpPresenter {
 
     fun initial(view: VerifySignUpView)
     fun onTapVerifySignUpRegister()
+    fun onTapGetOTP()
 
 }

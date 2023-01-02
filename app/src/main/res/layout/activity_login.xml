@@ -64,7 +64,7 @@
         app:hintTextColor="@color/light_dark_text_color">
 
         <EditText
-            android:id="@+id/edtPhNo"
+            android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/txtForgotPass"

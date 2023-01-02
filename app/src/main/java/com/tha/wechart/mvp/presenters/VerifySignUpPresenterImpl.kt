@@ -14,4 +14,8 @@ class VerifySignUpPresenterImpl : ViewModel(), VerifySignUpPresenter {
     override fun onTapVerifySignUpRegister() {
         mView.navigateToVerifyRegisterSignUp()
     }
+
+    override fun onTapGetOTP() {
+        mView.showNotificationOTP()
+    }
 }

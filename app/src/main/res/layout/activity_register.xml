@@ -47,7 +47,7 @@
         android:src="@drawable/register_img" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputPhNo"
+        android:id="@+id/txtInputName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/lbDateOfBth"
@@ -57,15 +57,14 @@
         android:hint="@string/txt_name"
         app:boxBackgroundColor="@color/primary_color"
         app:boxStrokeColor="@color/light_dark_text_color"
+        app:helperTextTextColor="@android:color/holo_red_light"
         app:hintTextColor="@color/light_dark_text_color">
 
         <EditText
-            android:id="@+id/edtPhNo"
+            android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/txtForgotPass"
-            android:ems="10"
-            android:inputType="number" />
+            android:layout_above="@id/txtForgotPass" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,6 +78,15 @@
         android:text="@string/txt_date_of_birth"
         android:textColor="@color/light_dark_text_color"
         android:textSize="@dimen/text_small" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDateOfBth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/flDay"
+        android:layout_alignTop="@id/lbDateOfBth"
+        android:layout_toEndOf="@id/lbDateOfBth"
+        app:helperTextTextColor="@android:color/holo_red_light" />
 
     <FrameLayout
         android:layout_width="110dp"
@@ -146,16 +154,17 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbMale"
+            android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_large"
+            android:checked="true"
             android:text="@string/txt_male"
             android:textColor="@color/primary_text_color"
             android:textStyle="bold" />
 
         <RadioButton
-            android:id="@+id/rbFemale"
+            android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_large"

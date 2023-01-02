@@ -42,7 +42,15 @@ class LoginActivity : AppCompatActivity(), LoginView {
         btnLogin.setOnClickListener {
             val phNo = edtPhoneNumber.text.toString()
             val pass = edtPassword.text.toString()
-            mPresenter.onTapLogin(phNo, pass)
+            if (phNo.isEmpty()) {
+                txtInputPhNo.helperText = "*Require"
+            } else if (pass.isEmpty()) {
+                txtInputPhNo.helperText = ""
+                txtInputPass.helperText = "*Require"
+            } else {
+                txtInputPass.helperText = ""
+                mPresenter.onTapLogin(phNo, pass)
+            }
         }
 
     }

@@ -192,6 +192,8 @@
         android:hint="@string/txt_enter_your_password"
         app:boxBackgroundColor="@color/primary_color"
         app:boxStrokeColor="@color/light_dark_text_color"
+        app:errorEnabled="true"
+        app:helperTextTextColor="@android:color/holo_red_light"
         app:hintTextColor="@color/light_dark_text_color">
 
         <EditText

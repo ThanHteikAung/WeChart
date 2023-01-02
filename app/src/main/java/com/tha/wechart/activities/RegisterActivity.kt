@@ -164,14 +164,21 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
             if (strName.isEmpty()) {
                 txtInputName.helperText = "*Require"
             } else if (year == "Year") {
+                txtInputName.helperText = ""
                 tilDateOfBth.helperText = "*Require input year"
             } else if (month == "Month") {
+                tilDateOfBth.helperText = ""
                 tilDateOfBth.helperText = "*Require input month"
             } else if (day == "Day") {
-                tilDateOfBth.helperText = "*Require input day"
-            } else {
-                txtInputName.helperText = ""
                 tilDateOfBth.helperText = ""
+                tilDateOfBth.helperText = "*Require input day"
+            } else if (edtPassword.text.isEmpty()) {
+                tilDateOfBth.helperText = ""
+                txtInputPass.helperText = "*Require"
+            } else if (!checkBoxAgreeTerm.isChecked) {
+                txtInputPass.helperText = ""
+                checkBoxAgreeTerm.error = "Please checkbox term and service"
+            } else {
                 mPresenter.onTapVerifyRegister(
                     mPhNo,
                     edtPhoneNumber.text.toString(),

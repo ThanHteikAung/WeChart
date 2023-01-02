@@ -1,5 +1,7 @@
 package com.tha.wechart.activities
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,6 +16,12 @@ import kotlinx.android.synthetic.main.activity_main_fragment.*
 class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
 
     private lateinit var mPresenter: MainFragmentPresenter
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, MainFragmentActivity::class.java)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

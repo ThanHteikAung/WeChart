@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.tha.wechart.R
 import com.tha.wechart.mvp.presenters.LoginPresenter
 import com.tha.wechart.mvp.presenters.LoginPresenterImpl
@@ -37,9 +38,27 @@ class LoginActivity : AppCompatActivity(), LoginView {
         btnBack.setOnClickListener {
             mPresenter.onTapBackToMain()
         }
+
+        btnLogin.setOnClickListener {
+            val phNo = edtPhoneNumber.text.toString()
+            val pass = edtPassword.text.toString()
+            mPresenter.onTapLogin(phNo, pass)
+        }
+
     }
 
     override fun navigateToMainScreen() {
         startActivity(MainActivity.newIntent(this))
+    }
+
+    override fun navigateToMomentScreen() {
+        startActivity(MainFragmentActivity.newIntent(this))
+        /*println("Success Validation Login")
+        println(registerList.phNo)
+        println(registerList.pass)*/
+    }
+
+    override fun showError(error: String) {
+        Snackbar.make(window.decorView, error, Snackbar.LENGTH_LONG).show()
     }
 }

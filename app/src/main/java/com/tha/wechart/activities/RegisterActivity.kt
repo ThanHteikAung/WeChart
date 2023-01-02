@@ -24,7 +24,6 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
     companion object {
         private const val EXTRA_PHONE_NUMBER = "EXTRA_PHONE_NUMBER"
         fun newIntent(context: Context, phNo: String): Intent {
-            println("newIntent() -> $phNo")
             return Intent(context, RegisterActivity::class.java).putExtra(
                 EXTRA_PHONE_NUMBER, phNo
             )
@@ -159,11 +158,9 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
             val strName = edtPhoneNumber.text.toString()
             val dateOfBirth = "$day/$month/$year"
             val mPhNo = intent.getStringExtra(EXTRA_PHONE_NUMBER).toString()
-            println("Get PhoneNumber -> $mPhNo")
-            println("***Test Register***")
             val genderId = rbgGender.checkedRadioButtonId
             val genderString = resources.getResourceEntryName(genderId)
-            println(genderString)
+
             if (strName.isEmpty()) {
                 txtInputName.helperText = "*Require"
             } else if (year == "Year") {

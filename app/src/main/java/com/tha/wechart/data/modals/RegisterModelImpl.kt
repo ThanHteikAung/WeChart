@@ -16,4 +16,13 @@ object RegisterModelImpl : RegisterModel {
     ) {
         mCloudFireStoreFirebaseApiImpl.addRegister(phNo, name, dateOfBirth, gender, pass)
     }
+
+    override fun getRegister(
+        phNo: String,
+        pass: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCloudFireStoreFirebaseApiImpl.getRegister(phNo, pass, onSuccess, onFailure)
+    }
 }

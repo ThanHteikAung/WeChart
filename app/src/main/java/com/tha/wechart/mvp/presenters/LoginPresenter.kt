@@ -6,5 +6,6 @@ interface LoginPresenter {
 
     fun initView(view: LoginView)
     fun onTapBackToMain()
+    fun onTapLogin(phNo: String, pass: String)
 
 }

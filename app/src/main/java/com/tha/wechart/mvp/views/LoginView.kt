@@ -1,5 +1,8 @@
 package com.tha.wechart.mvp.views
 
-interface LoginView {
+import com.tha.wechart.data.vos.RegisterVO
+
+interface LoginView: BaseView {
     fun navigateToMainScreen()
+    fun navigateToMomentScreen()
 }

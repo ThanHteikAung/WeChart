@@ -8,4 +8,10 @@ interface RegisterModel {
         gender: String,
         pass: String
     )
+
+    fun getRegister(
+        phNo: String,
+        pass: String,
+        onSuccess: () -> Unit, onFailure: (String) -> Unit
+    )
 }

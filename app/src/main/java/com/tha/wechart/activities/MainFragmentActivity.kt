@@ -42,18 +42,23 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
             when (menuItem.itemId) {
                 R.id.momentMenu -> {
                     mPresenter.navigateToMoment(MomentFragment())
+                    swiftAppBar("Moments", R.drawable.ic_baseline_post_add_white_24dp)
                 }
                 R.id.chatMenu -> {
                     mPresenter.navigateToChat(ChatFragment())
+                    swiftAppBar("Chats", R.drawable.ic_baseline_search_white_24dp)
                 }
                 R.id.contactsMenu -> {
                     mPresenter.navigateToContacts(ContactsFragment())
+                    swiftAppBar("Contacts", R.drawable.ic_baseline_person_add_alt_1_white_24dp)
                 }
                 R.id.meAccMenu -> {
                     mPresenter.navigateToMeAcc(MeFragment())
+                    swiftAppBar("Me", R.drawable.ic_baseline_edit_white_24dp)
                 }
                 R.id.settingMenu -> {
                     mPresenter.navigateToSetting(SettingFragment())
+                    swiftAppBar("Setting", R.drawable.ic_baseline_settings_white_24dp)
                 }
             }
             true
@@ -64,6 +69,12 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainFrameLayout, fragment)
             .commit()
+    }
+
+    //swift appbar title and icon
+    private fun swiftAppBar(title: String, iconImage: Int) {
+        txtAppBarTitle.text = title
+        btnAppBarIcon.setImageResource(iconImage)
     }
 
     override fun showFragment(fragment: Fragment) {

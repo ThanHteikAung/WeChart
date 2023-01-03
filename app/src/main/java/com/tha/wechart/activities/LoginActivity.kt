@@ -61,9 +61,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun navigateToMomentScreen() {
         startActivity(MainFragmentActivity.newIntent(this))
-        /*println("Success Validation Login")
-        println(registerList.phNo)
-        println(registerList.pass)*/
     }
 
     override fun showError(error: String) {

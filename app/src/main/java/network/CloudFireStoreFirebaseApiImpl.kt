@@ -41,19 +41,12 @@ object CloudFireStoreFirebaseApiImpl : FirebaseApi {
                     onFailure(it.message ?: "Please check connection")
                 } ?: run {
                     value?.documents?.size?.let { size ->
-                        if (size>0){
+                        if (size > 0) {
                             onSuccess()
-                        }else{
+                        } else {
                             onFailure("Wrong Phone or Password")
                         }
                     }
-                    /*val result = value?.data
-                    val register = RegisterVO()
-                    register.phNo = result?.get("phNo") as String
-                    register.pass = result?.get("pass") as String
-                    onSuccess(register)*/
-                    /*println(value?.documents?.size)
-                    onSuccess()*/
                 }
             }
     }

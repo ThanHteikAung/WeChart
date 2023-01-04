@@ -8,5 +8,6 @@ class RegisterVO(
     var name: String? = "",
     var pass: String? = "",
     var dateOfBirth: String? = "",
-    var gender: String? = ""
+    var gender: String? = "",
+    var imageUrl: String? = ""
 )

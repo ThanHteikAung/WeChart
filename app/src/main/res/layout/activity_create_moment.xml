@@ -26,6 +26,7 @@
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnCreateMoment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/closeNewMom"
@@ -71,11 +72,11 @@
         android:background="@android:color/transparent"
         android:hint="@string/txt_hint_new_moment"
         android:inputType="textMultiLine|textNoSuggestions" />
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAddImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

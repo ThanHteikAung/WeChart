@@ -31,4 +31,8 @@ class MainFragmentPresenterImpl : ViewModel(), MainFragmentPresenter {
     override fun navigateToSetting(fragment: Fragment) {
         mView.showFragment(fragment)
     }
+
+    override fun navigateToCreateMoment() {
+        mView.showCreateMoment()
+    }
 }

@@ -38,6 +38,7 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
 
     //setup bottomNavigation listener
     private fun setUpBottomNavigationListener() {
+        swiftAppBar("Moments", R.drawable.ic_baseline_post_add_white_24dp)
         bottomNavigate.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.momentMenu -> {
@@ -75,10 +76,33 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
     private fun swiftAppBar(title: String, iconImage: Int) {
         txtAppBarTitle.text = title
         btnAppBarIcon.setImageResource(iconImage)
+        btnAppBarIcon.setOnClickListener {
+            when (iconImage) {
+                R.drawable.ic_baseline_post_add_white_24dp -> {
+                    mPresenter.navigateToCreateMoment()
+                }
+                R.drawable.ic_baseline_search_white_24dp -> {
+                    println("Chats")
+                }
+                R.drawable.ic_baseline_person_add_alt_1_white_24dp -> {
+                    println("Contacts")
+                }
+                R.drawable.ic_baseline_edit_white_24dp -> {
+                    println("Me")
+                }
+                R.drawable.ic_baseline_settings_white_24dp -> {
+                    println("setting")
+                }
+            }
+        }
     }
 
     override fun showFragment(fragment: Fragment) {
         swiftFragment(fragment)
+    }
+
+    override fun showCreateMoment() {
+        startActivity(CreateMomentActivity.newIntent(this))
     }
 
 

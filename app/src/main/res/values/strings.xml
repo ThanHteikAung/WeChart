@@ -51,5 +51,8 @@
     <string name="txt_new_moment">New Moment</string>
     <string name="txt_create">Create</string>
     <string name="txt_hint_new_moment">What\'s on your mind</string>
+    <string name="txt_search">Search</string>
+    <string name="txt_add_new">Add New</string>
+    <string name="txt_contact_name">Than Hteik Aung</string>
 
 </resources>

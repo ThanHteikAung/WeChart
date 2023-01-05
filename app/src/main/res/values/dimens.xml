@@ -35,6 +35,8 @@
     <dimen name="height_back_arrow">30dp</dimen>
     <dimen name="width_new_moment_profile">50dp</dimen>
     <dimen name="height_new_moment_profile">50dp</dimen>
+    <dimen name="width_contact_profile">50dp</dimen>
+    <dimen name="height_contact_profile">50dp</dimen>
 
     <!-- App Specific Dimensions-->
 

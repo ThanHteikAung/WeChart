@@ -23,7 +23,7 @@ class AddImageAdapter(private val mDelegate: AddImageDelegate) :
         super.onBindViewHolder(holder, position)
         if (position == mImageListCount - 1) {
             holder.addImage.setImageResource(R.drawable.ic_baseline_add_24dp)
-            holder.addImage.setBackgroundResource(R.drawable.rounded_four_corner_button)
+            holder.addImage.setBackgroundResource(R.drawable.rounded_four_corner_stroke_button)
         } else {
             holder.bindData(mImageList[position])
         }

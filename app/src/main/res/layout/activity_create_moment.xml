@@ -32,7 +32,7 @@
         android:layout_alignTop="@id/closeNewMom"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/margin_medium_2"
-        android:background="@drawable/rounded_four_corner_button"
+        android:background="@drawable/rounded_four_corner_stroke_button"
         android:backgroundTint="@color/secondary_color"
         android:padding="@dimen/margin_medium"
         android:text="@string/txt_create"

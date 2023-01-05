@@ -223,7 +223,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_xlarge"
-        android:background="@drawable/rounded_four_corner_button"
+        android:background="@drawable/rounded_four_corner_stroke_button"
         android:backgroundTint="@color/secondary_color"
         android:gravity="center"
         android:text="@string/txt_sign_up"

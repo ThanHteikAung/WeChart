@@ -24,7 +24,7 @@
         android:textSize="@dimen/margin_medium_2" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtDeActivated"
+        android:id="@+id/txtTimeAgo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtProfileName"
@@ -44,7 +44,7 @@
         android:src="@drawable/ic_baseline_more_horiz_24" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtNice"
+        android:id="@+id/txtContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgProfile"
@@ -59,7 +59,7 @@
         android:id="@+id/rvMomentImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/txtNice"
+        android:layout_below="@id/txtContact"
         android:layout_alignStart="@id/imgProfile"
         android:layout_alignEnd="@id/moreSetting"
         android:layout_marginTop="@dimen/margin_medium"

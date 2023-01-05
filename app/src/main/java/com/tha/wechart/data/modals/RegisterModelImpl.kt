@@ -1,6 +1,7 @@
 package com.tha.wechart.data.modals
 
 import android.graphics.Bitmap
+import com.tha.wechart.data.vos.UserVO
 import network.CloudFireStoreFirebaseApiImpl
 import network.FirebaseApi
 
@@ -8,6 +9,7 @@ object RegisterModelImpl : RegisterModel {
 
     private val mCloudFireStoreFirebaseApiImpl: FirebaseApi = CloudFireStoreFirebaseApiImpl
     private var mImage = arrayListOf<String>()
+    private lateinit var mPhone: String
 
     override fun addRegister(
         phNo: String,
@@ -19,7 +21,7 @@ object RegisterModelImpl : RegisterModel {
         mCloudFireStoreFirebaseApiImpl.addRegister(phNo, name, dateOfBirth, gender, pass)
     }
 
-    override fun addMoment(postTime: String, textContact: String) {
+    override fun addMoment(postTime: Long, textContact: String) {
         mCloudFireStoreFirebaseApiImpl.addMoment(postTime, textContact, mImage)
     }
 
@@ -41,6 +43,14 @@ object RegisterModelImpl : RegisterModel {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
+        mPhone = phNo
         mCloudFireStoreFirebaseApiImpl.getRegister(phNo, pass, onSuccess, onFailure)
+    }
+
+    override fun getUserData(
+        onSuccess: (userDataList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCloudFireStoreFirebaseApiImpl.getUserData(mPhone, onSuccess, onFailure)
     }
 }

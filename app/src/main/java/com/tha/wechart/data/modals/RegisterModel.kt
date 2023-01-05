@@ -1,6 +1,7 @@
 package com.tha.wechart.data.modals
 
 import android.graphics.Bitmap
+import com.tha.wechart.data.vos.UserVO
 
 interface RegisterModel {
     fun addRegister(
@@ -11,7 +12,7 @@ interface RegisterModel {
         pass: String
     )
 
-    fun addMoment(postTime: String, textContact: String)
+    fun addMoment(postTime: Long, textContact: String)
 
     fun uploadImageGrocery(image: Bitmap, onSuccess: (ArrayList<String>) -> Unit)
 
@@ -19,6 +20,11 @@ interface RegisterModel {
         phNo: String,
         pass: String,
         onSuccess: () -> Unit, onFailure: (String) -> Unit
+    )
+
+    fun getUserData(
+        onSuccess: (userDataList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
     )
 
 

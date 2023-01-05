@@ -15,7 +15,7 @@ class CreateMomentPresenterImpl : ViewModel(), CreateMomentPresenter {
         mView = view
     }
 
-    override fun onTapCreate(postTime: String, textContact: String) {
+    override fun onTapCreate(postTime: Long, textContact: String) {
         mModel.addMoment(postTime, textContact)
         mView.navigateToMoment()
     }

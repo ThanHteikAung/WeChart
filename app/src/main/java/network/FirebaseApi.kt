@@ -1,6 +1,7 @@
 package network
 
 import android.graphics.Bitmap
+import com.tha.wechart.data.vos.UserVO
 
 interface FirebaseApi {
 
@@ -18,9 +19,15 @@ interface FirebaseApi {
     )
 
     fun addMoment(
-        postTime: String,
+        postTime: Long,
         textContact: String,
         image: ArrayList<String>
+    )
+
+    fun getUserData(
+        phNo: String,
+        onSuccess: (userDataList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
     )
 
 }

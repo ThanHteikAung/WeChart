@@ -7,7 +7,7 @@ import com.tha.wechart.mvp.views.CreateMomentView
 interface CreateMomentPresenter: AddImageDelegate {
 
     fun initView(view: CreateMomentView)
-    fun onTapCreate(postTime: String, textContact: String)
+    fun onTapCreate(postTime: Long, textContact: String)
     fun onPhotoTaken(bitmap: Bitmap)
 
 }

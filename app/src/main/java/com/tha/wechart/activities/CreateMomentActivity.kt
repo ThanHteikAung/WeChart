@@ -19,8 +19,6 @@ import com.tha.wechart.mvp.presenters.CreateMomentPresenterImpl
 import com.tha.wechart.mvp.views.CreateMomentView
 import kotlinx.android.synthetic.main.activity_create_moment.*
 import java.io.IOException
-import java.sql.Timestamp
-import java.util.*
 
 class CreateMomentActivity : AppCompatActivity(), CreateMomentView {
 
@@ -55,10 +53,9 @@ class CreateMomentActivity : AppCompatActivity(), CreateMomentView {
 
     private fun setUpListener() {
         btnCreateMoment.setOnClickListener {
-            val stamp = Timestamp(System.currentTimeMillis())
-            val date = Date(stamp.time).toString()
+            val stamp = System.currentTimeMillis()
             val textContext = createText.text.toString()
-            mPresenter.onTapCreate(date, textContext)
+            mPresenter.onTapCreate(stamp, textContext)
         }
     }
 

@@ -10,4 +10,5 @@ class ContactsPresenterImpl : ViewModel(), ContactsPresenter {
     override fun initView(view: ContactsView) {
         mView = view
     }
+
 }

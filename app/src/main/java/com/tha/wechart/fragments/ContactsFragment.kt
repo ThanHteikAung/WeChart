@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tha.wechart.R
+import com.tha.wechart.activities.CreateGroupActivity
 import com.tha.wechart.adapters.ContactsAdapter
 import com.tha.wechart.adapters.ContactsListAdapter
 import com.tha.wechart.mvp.presenters.ContactsPresenter
@@ -57,6 +58,10 @@ class ContactsFragment : Fragment(), ContactsView {
         rvContactsList.adapter = mContactsListAdapter
         rvContactsList.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun navigateToCreateGroupScreen() {
+        startActivity(context?.let { CreateGroupActivity.newIntent(it) })
     }
 
 }

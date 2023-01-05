@@ -35,4 +35,8 @@ class MainFragmentPresenterImpl : ViewModel(), MainFragmentPresenter {
     override fun navigateToCreateMoment() {
         mView.showCreateMoment()
     }
+
+    override fun navigateToCreateContactGroup() {
+        mView.showCreateContactGroup()
+    }
 }

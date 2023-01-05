@@ -12,5 +12,6 @@ interface MainFragmentPresenter {
     fun navigateToMeAcc(fragment: Fragment)
     fun navigateToSetting(fragment: Fragment)
     fun navigateToCreateMoment()
+    fun navigateToCreateContactGroup()
 
 }

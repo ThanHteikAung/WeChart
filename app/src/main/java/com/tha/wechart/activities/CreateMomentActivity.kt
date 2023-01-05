@@ -52,7 +52,7 @@ class CreateMomentActivity : AppCompatActivity(), CreateMomentView {
     }
 
     private fun setUpListener() {
-        btnCreateMoment.setOnClickListener {
+        btnCreateGroup.setOnClickListener {
             val stamp = System.currentTimeMillis()
             val textContext = createText.text.toString()
             mPresenter.onTapCreate(stamp, textContext)

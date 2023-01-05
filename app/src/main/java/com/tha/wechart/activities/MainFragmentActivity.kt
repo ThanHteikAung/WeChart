@@ -85,7 +85,7 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
                     println("Chats")
                 }
                 R.drawable.ic_baseline_person_add_alt_1_white_24dp -> {
-                    println("Contacts")
+                    mPresenter.navigateToCreateContactGroup()
                 }
                 R.drawable.ic_baseline_edit_white_24dp -> {
                     println("Me")
@@ -103,6 +103,10 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
 
     override fun showCreateMoment() {
         startActivity(CreateMomentActivity.newIntent(this))
+    }
+
+    override fun showCreateContactGroup() {
+        startActivity(CreateGroupActivity.newIntent(this))
     }
 
 

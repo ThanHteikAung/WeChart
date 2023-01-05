@@ -5,4 +5,5 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/margin_medium</item>
     </style>
+
 </resources>

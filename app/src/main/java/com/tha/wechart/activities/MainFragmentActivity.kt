@@ -82,7 +82,7 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
                     mPresenter.navigateToCreateMoment()
                 }
                 R.drawable.ic_baseline_search_white_24dp -> {
-                    println("Chats")
+                    mPresenter.navigateToChatRoomActivity()
                 }
                 R.drawable.ic_baseline_person_add_alt_1_white_24dp -> {
                     mPresenter.navigateToCreateContactGroup()
@@ -107,6 +107,10 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
 
     override fun showCreateContactGroup() {
         startActivity(CreateGroupActivity.newIntent(this))
+    }
+
+    override fun showChartRoom() {
+        startActivity(ChartRoomActivity.newIntent(this))
     }
 
 

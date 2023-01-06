@@ -39,6 +39,8 @@
     <dimen name="width_contact_profile">50dp</dimen>
     <dimen name="height_contact_profile">50dp</dimen>
     <dimen name="width_chat_profile">30dp</dimen>
+    <dimen name="width_me_profile">120dp</dimen>
+    <dimen name="height_me_profile">120dp</dimen>
 
     <!-- App Specific Dimensions-->
 

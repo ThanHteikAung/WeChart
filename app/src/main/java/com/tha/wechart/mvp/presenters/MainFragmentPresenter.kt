@@ -13,5 +13,6 @@ interface MainFragmentPresenter {
     fun navigateToSetting(fragment: Fragment)
     fun navigateToCreateMoment()
     fun navigateToCreateContactGroup()
+    fun navigateToChatRoomActivity()
 
 }

@@ -39,4 +39,8 @@ class MainFragmentPresenterImpl : ViewModel(), MainFragmentPresenter {
     override fun navigateToCreateContactGroup() {
         mView.showCreateContactGroup()
     }
+
+    override fun navigateToChatRoomActivity() {
+        mView.showChartRoom()
+    }
 }

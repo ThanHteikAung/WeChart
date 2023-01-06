@@ -7,5 +7,6 @@ interface MainFragmentView {
     fun showFragment(fragment: Fragment)
     fun showCreateMoment()
     fun showCreateContactGroup()
+    fun showChartRoom()
 
 }

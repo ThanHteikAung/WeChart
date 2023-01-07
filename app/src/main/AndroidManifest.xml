@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wechart"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.ScannerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="barcode" />
+        </activity>
         <activity
             android:name=".activities.ChartRoomActivity"
             android:exported="false">
@@ -73,7 +85,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

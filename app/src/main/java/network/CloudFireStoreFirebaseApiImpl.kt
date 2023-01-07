@@ -94,6 +94,30 @@ object CloudFireStoreFirebaseApiImpl : FirebaseApi {
 
     }
 
+    override fun getUserRegister(
+        phNo: String,
+        onSuccess: (register: UserVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection("registers").whereEqualTo("phNo", phNo)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check connection")
+                } ?: run {
+                    val result = value?.documents ?: arrayListOf()
+                    val user = UserVO()
+                    for (document in result) {
+                        val data = document.data
+                        user.name = data?.get("name") as String
+                        user.phNo = data?.get("phNo") as String
+                        user.gender = data?.get("gender") as String
+                        user.dateOfBirth = data?.get("dateOfBirth") as String
+                    }
+                    onSuccess(user)
+                }
+            }
+    }
+
     override fun getRegister(
         phNo: String,
         pass: String,

@@ -30,4 +30,10 @@ interface FirebaseApi {
         onFailure: (String) -> Unit
     )
 
+    fun getUserRegister(
+        phNo: String,
+        onSuccess: (register: UserVO) -> Unit,
+        onFailure: (String) -> Unit
+    )
+
 }

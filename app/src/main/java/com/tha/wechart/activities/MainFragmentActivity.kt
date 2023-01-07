@@ -85,10 +85,11 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
                     mPresenter.navigateToChatRoomActivity()
                 }
                 R.drawable.ic_baseline_person_add_alt_1_white_24dp -> {
-                    mPresenter.navigateToCreateContactGroup()
+                    mPresenter.navigateToQRCodeScanner()
+                    //mPresenter.navigateToCreateContactGroup()
                 }
                 R.drawable.ic_baseline_edit_white_24dp -> {
-                    println("Me")
+                    println("me")
                 }
                 R.drawable.ic_baseline_settings_white_24dp -> {
                     println("setting")
@@ -111,6 +112,10 @@ class MainFragmentActivity : AppCompatActivity(), MainFragmentView {
 
     override fun showChartRoom() {
         startActivity(ChartRoomActivity.newIntent(this))
+    }
+
+    override fun showQrScanner() {
+        startActivity(ScannerActivity.newIntent(this))
     }
 
 

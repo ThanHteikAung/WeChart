@@ -27,5 +27,10 @@ interface RegisterModel {
         onFailure: (String) -> Unit
     )
 
+    fun getUserRegister(
+        onSuccess: (register: UserVO) -> Unit,
+        onFailure: (String) -> Unit
+    )
+
 
 }

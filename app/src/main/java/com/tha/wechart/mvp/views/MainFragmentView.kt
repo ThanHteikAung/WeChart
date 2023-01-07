@@ -8,5 +8,6 @@ interface MainFragmentView {
     fun showCreateMoment()
     fun showCreateContactGroup()
     fun showChartRoom()
+    fun showQrScanner()
 
 }

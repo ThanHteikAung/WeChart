@@ -43,4 +43,8 @@ class MainFragmentPresenterImpl : ViewModel(), MainFragmentPresenter {
     override fun navigateToChatRoomActivity() {
         mView.showChartRoom()
     }
+
+    override fun navigateToQRCodeScanner() {
+        mView.showQrScanner()
+    }
 }

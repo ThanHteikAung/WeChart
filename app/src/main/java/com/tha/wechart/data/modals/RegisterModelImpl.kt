@@ -53,4 +53,11 @@ object RegisterModelImpl : RegisterModel {
     ) {
         mCloudFireStoreFirebaseApiImpl.getUserData(mPhone, onSuccess, onFailure)
     }
+
+    override fun getUserRegister(
+        onSuccess: (register: UserVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCloudFireStoreFirebaseApiImpl.getUserRegister(mPhone, onSuccess, onFailure)
+    }
 }

@@ -14,5 +14,6 @@ interface MainFragmentPresenter {
     fun navigateToCreateMoment()
     fun navigateToCreateContactGroup()
     fun navigateToChatRoomActivity()
+    fun navigateToQRCodeScanner()
 
 }

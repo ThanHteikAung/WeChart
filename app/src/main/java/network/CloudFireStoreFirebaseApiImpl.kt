@@ -14,6 +14,7 @@ object CloudFireStoreFirebaseApiImpl : FirebaseApi {
     val db = Firebase.firestore
     private val storage = FirebaseStorage.getInstance()
     private val imageUrlList = arrayListOf<String>()
+    private var mFriName: String = ""
 
     override fun addRegister(
         phNo: String,
@@ -117,6 +118,56 @@ object CloudFireStoreFirebaseApiImpl : FirebaseApi {
                 }
             }
     }
+
+    override fun addFriend(friPhNo: String, curUserPhNo: String) {
+        db.collection("registers").whereEqualTo("phNo", friPhNo)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    //show Error
+                    Log.d("Failure", "Failed to get friend register")
+                } ?: run {
+                    val result = value?.documents ?: arrayListOf()
+                    for (document in result) {
+                        val data = document.data
+                        mFriName = data?.get("name") as String
+                    }
+                }.run {
+                    val friRegisterMap = hashMapOf(
+                        "friPhNo" to friPhNo,
+                        "friName" to mFriName,
+                    )
+                    db.collection("registers").document(curUserPhNo).collection("friendList")
+                        .document(friPhNo)
+                        .set(friRegisterMap)
+                        .addOnSuccessListener { Log.d("Success", "Successfully added register") }
+                        .addOnFailureListener { Log.d("Failure", "Failed to add register") }
+                }
+            }
+    }
+
+    override fun getFriendList(
+        curUserPhNo: String,
+        onSuccess: (friendList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection("registers").document(curUserPhNo).collection("friendList")
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check connection")
+                } ?: run {
+                    val result = value?.documents ?: arrayListOf()
+                    val friendDataList: MutableList<UserVO> = arrayListOf()
+                    for (document in result) {
+                        val data = document.data
+                        val user = UserVO()
+                        user.name = data?.get("friName") as String
+                        friendDataList.add(user)
+                    }
+                    onSuccess(friendDataList)
+                }
+            }
+    }
+
 
     override fun getRegister(
         phNo: String,

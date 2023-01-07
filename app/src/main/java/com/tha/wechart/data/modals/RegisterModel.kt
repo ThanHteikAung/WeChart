@@ -32,5 +32,14 @@ interface RegisterModel {
         onFailure: (String) -> Unit
     )
 
+    fun addFriend(
+        friPhNo: String
+    )
+
+    fun getFriendList(
+        onSuccess: (friendList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
+    )
+
 
 }

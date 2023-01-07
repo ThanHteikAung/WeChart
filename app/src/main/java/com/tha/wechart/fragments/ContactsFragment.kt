@@ -11,6 +11,7 @@ import com.tha.wechart.R
 import com.tha.wechart.activities.CreateGroupActivity
 import com.tha.wechart.adapters.ContactsAdapter
 import com.tha.wechart.adapters.ContactsListAdapter
+import com.tha.wechart.data.vos.UserVO
 import com.tha.wechart.mvp.presenters.ContactsPresenter
 import com.tha.wechart.mvp.presenters.ContactsPresenterImpl
 import com.tha.wechart.mvp.views.ContactsView
@@ -39,6 +40,8 @@ class ContactsFragment : Fragment(), ContactsView {
         setUpPresenter()
         setUpAddGroupRecycler()
         setUpContactListRecycler()
+
+        mPresenter.onUiReady(this)
     }
 
     private fun setUpPresenter() {
@@ -62,6 +65,10 @@ class ContactsFragment : Fragment(), ContactsView {
 
     override fun navigateToCreateGroupScreen() {
         startActivity(context?.let { CreateGroupActivity.newIntent(it) })
+    }
+
+    override fun showContactList(friendList: List<UserVO>) {
+        mContactsListAdapter.setNewData(friendList)
     }
 
 }

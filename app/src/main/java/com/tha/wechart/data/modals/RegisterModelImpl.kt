@@ -8,8 +8,9 @@ import network.FirebaseApi
 object RegisterModelImpl : RegisterModel {
 
     private val mCloudFireStoreFirebaseApiImpl: FirebaseApi = CloudFireStoreFirebaseApiImpl
+    private val mSndCloudFireStoreFirebaseApiImpl: FirebaseApi = CloudFireStoreFirebaseApiImpl
     private var mImage = arrayListOf<String>()
-    private lateinit var mPhone: String
+    private lateinit var mCurrentPhone: String
 
     override fun addRegister(
         phNo: String,
@@ -43,7 +44,7 @@ object RegisterModelImpl : RegisterModel {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mPhone = phNo
+        mCurrentPhone = phNo
         mCloudFireStoreFirebaseApiImpl.getRegister(phNo, pass, onSuccess, onFailure)
     }
 
@@ -51,13 +52,30 @@ object RegisterModelImpl : RegisterModel {
         onSuccess: (userDataList: List<UserVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCloudFireStoreFirebaseApiImpl.getUserData(mPhone, onSuccess, onFailure)
+        mCloudFireStoreFirebaseApiImpl.getUserData(
+            mCurrentPhone,
+            onSuccess,
+            onFailure
+        )
     }
 
     override fun getUserRegister(
         onSuccess: (register: UserVO) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCloudFireStoreFirebaseApiImpl.getUserRegister(mPhone, onSuccess, onFailure)
+        mCloudFireStoreFirebaseApiImpl.getUserRegister(mCurrentPhone, onSuccess, onFailure)
+    }
+
+    override fun addFriend(friPhNo: String) {
+        //Friend register data save in Current User register
+        mCloudFireStoreFirebaseApiImpl.addFriend(friPhNo, mCurrentPhone)
+        mSndCloudFireStoreFirebaseApiImpl.addFriend(mCurrentPhone, friPhNo)
+    }
+
+    override fun getFriendList(
+        onSuccess: (friendList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCloudFireStoreFirebaseApiImpl.getFriendList(mCurrentPhone, onSuccess, onFailure)
     }
 }

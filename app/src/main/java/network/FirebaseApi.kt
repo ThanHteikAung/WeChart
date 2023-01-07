@@ -36,4 +36,15 @@ interface FirebaseApi {
         onFailure: (String) -> Unit
     )
 
+    fun addFriend(
+        friPhNo: String,
+        curUserPhNo: String
+    )
+
+    fun getFriendList(
+        curUserPhNo: String,
+        onSuccess: (friendList: List<UserVO>) -> Unit,
+        onFailure: (String) -> Unit
+    )
+
 }

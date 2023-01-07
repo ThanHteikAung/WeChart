@@ -47,7 +47,7 @@
         android:layout_below="@id/closeNewGroup"
         android:layout_alignStart="@id/closeNewGroup"
         android:layout_alignEnd="@id/btnCreateGroup"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium_2"
         android:layout_marginBottom="@dimen/margin_medium_3"
         android:hint="@string/txt_title_new_gp"
         app:boxBackgroundColor="@color/primary_color"
@@ -56,12 +56,9 @@
         app:hintTextColor="@color/primary_text_color">
 
         <EditText
-            android:id="@+id/edtPhoneNumber"
+            android:id="@+id/edtInputGpName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/txtForgotPass"
-            android:ems="10"
-            android:inputType="number" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

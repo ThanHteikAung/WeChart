@@ -12,23 +12,28 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.snackbar.Snackbar
 import com.tha.wechart.R
+import com.tha.wechart.mvp.presenters.ScannerPresenter
+import com.tha.wechart.mvp.presenters.ScannerPresenterImpl
+import com.tha.wechart.mvp.views.ScannerView
 import kotlinx.android.synthetic.main.activity_scanner.*
 import kotlinx.android.synthetic.main.fragment_me.*
 import java.io.IOException
 
-class ScannerActivity : AppCompatActivity() {
+class ScannerActivity : AppCompatActivity(), ScannerView {
 
     private val requestCodeCameraPermission = 1001
     private lateinit var cameraSource: CameraSource
     private lateinit var barcodeDetector: BarcodeDetector
     private lateinit var storagePermissions: Array<String>
     private var scannedValue = ""
+    private lateinit var mPresenter: ScannerPresenter
 
     companion object {
         private const val STORAGE_REQUEST_CODE = 101
@@ -44,6 +49,8 @@ class ScannerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
 
+        setUpPresenter()
+
         if (ContextCompat.checkSelfPermission(
                 this, android.Manifest.permission.CAMERA
             ) != PackageManager.PERMISSION_GRANTED
@@ -57,6 +64,11 @@ class ScannerActivity : AppCompatActivity() {
             AnimationUtils.loadAnimation(this, R.anim.scanner_animation)
         barcode_line.startAnimation(aniSlide)
 
+    }
+
+    private fun setUpPresenter() {
+        mPresenter = ViewModelProvider(this)[ScannerPresenterImpl::class.java]
+        mPresenter.initView(this)
     }
 
     private fun setupControls() {
@@ -128,6 +140,7 @@ class ScannerActivity : AppCompatActivity() {
                         ).show()
 
                         //Toast.makeText(this, "value- $scannedValue", Toast.LENGTH_SHORT).show()
+                        mPresenter.addFriendData(scannedValue)
                         finish()
                     }
                 } else {

@@ -26,4 +26,8 @@ class ContactsPresenterImpl : ViewModel(), ContactsPresenter {
         )
     }
 
+    override fun onTapAddGroup() {
+        mView.navigateToCreateGroupScreen()
+    }
+
 }

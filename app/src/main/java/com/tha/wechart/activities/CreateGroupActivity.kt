@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tha.wechart.R
-import com.tha.wechart.adapters.ContactsListAdapter
+import com.tha.wechart.adapters.CreateContactListAdapter
 import com.tha.wechart.adapters.SelectContactsListAdapter
+import com.tha.wechart.data.vos.UserVO
 import com.tha.wechart.mvp.presenters.CreateGroupPresenter
 import com.tha.wechart.mvp.presenters.CreateGroupPresenterImpl
 import com.tha.wechart.mvp.views.CreateGroupView
@@ -18,7 +19,7 @@ class CreateGroupActivity : AppCompatActivity(), CreateGroupView {
 
     private lateinit var mSelectContactsListAdapter: SelectContactsListAdapter
     private lateinit var mPresenter: CreateGroupPresenter
-    private lateinit var mContactsListAdapter: ContactsListAdapter
+    private lateinit var mContactsListAdapter: CreateContactListAdapter
 
     companion object {
         fun newIntent(context: Context): Intent {
@@ -47,10 +48,14 @@ class CreateGroupActivity : AppCompatActivity(), CreateGroupView {
     }
 
     private fun setUpContactListRecycler() {
-        mContactsListAdapter = ContactsListAdapter()
+        mContactsListAdapter = CreateContactListAdapter()
         rvContactsList.adapter = mContactsListAdapter
         rvContactsList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun showCreateContactList(friendList: List<UserVO>) {
+        mContactsListAdapter.setNewData(friendList)
     }
 
 

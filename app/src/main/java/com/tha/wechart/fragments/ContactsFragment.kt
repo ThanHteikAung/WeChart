@@ -50,7 +50,7 @@ class ContactsFragment : Fragment(), ContactsView {
     }
 
     private fun setUpAddGroupRecycler() {
-        mContactsAdapter = ContactsAdapter()
+        mContactsAdapter = ContactsAdapter(mPresenter)
         rvGroupCreate.adapter = mContactsAdapter
         rvGroupCreate.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
